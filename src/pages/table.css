@@ -1,0 +1,42 @@
+/* GeneTable.css */
+table {
+  width: 500px;
+  border-collapse: collapse; /* Ensures borders don't overlap */
+}
+
+th, td {
+  border: 1px solid #ddd; /* Light gray border */
+  padding: 12px; /* Increase padding for larger cells */
+  text-align: left; /* Align text to the left */
+  min-width: 50px; /* Minimum width for each column */
+}
+
+th {
+  background-color: #f2f2f2; /* Light background for header */
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Zebra stripes for even rows */
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Set a fixed height for rows if needed */
+tr {
+  height: 50px; /* Set row height */
+}
+
+/* Optional: Adjust specific column widths */
+th:nth-child(1), td:nth-child(1) {
+  width: 100px; /* Make the first column wider */
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 100px; /* Make the second column wider */
+}
+
+th:nth-child(3), td:nth-child(3) {
+  width: 100px; /* Adjust the third column width */
+}

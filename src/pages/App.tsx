@@ -28,6 +28,7 @@ const VerticalDivider = () => {
                 <div className="right-component">
                     <br></br>
                     <Suspense fallback={<Loading />}><WTGraph/></Suspense>
+                    {/*<Suspense fallback={<Loading />}><Newapp/></Suspense>*/}
                 <div>
                 </div>
                 
