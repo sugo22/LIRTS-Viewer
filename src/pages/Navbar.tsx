@@ -9,9 +9,6 @@ function Navbar() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/App">Tool</Link>
-          </li>
-          <li>
             <Link to="/Gene">Expression Analysis</Link>
           </li>
         </ul>

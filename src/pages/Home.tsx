@@ -6,7 +6,7 @@ function Home() {
         <div className = "home">
             <center>
                 <br></br>
-            <Link to="/App"><h1>LIRTS Viewer</h1></Link>
+            <h1>LIRTS Viewer</h1>
             <h2>Graphical visualization tool for gene expression in lens epithelial cells</h2></center>
             <br></br>
             <br></br>
