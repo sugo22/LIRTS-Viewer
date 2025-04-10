@@ -7,4 +7,6 @@
 Web Hosting
 Node Package Manager (NPM) version 8.19.4 (node version 16.20.1) was utilized to build a compilation folder by running the default command
 > npm run build
+
+
 The resulting build folder with the compiled files and images was launched using an Apache server hosted on Biomix, a high-performance computing cluster at the University of Delaware, at the URL https://lirts.dbi.udel.edu/.

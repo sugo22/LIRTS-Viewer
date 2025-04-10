@@ -55,7 +55,7 @@ const Heatmap: React.FC = () => {
           type="text"
           value={searchInput}
           onChange={handleInputChange}
-          placeholder="Enter up to 10 gene symbols (comma-separated)"
+          placeholder="Enter gene symbols here"
         />
         <button onClick={handleGenerateHeatmap}>Generate Heatmap</button>
       </div>
@@ -70,6 +70,9 @@ const Heatmap: React.FC = () => {
               type: "heatmap",
               colorscale: "Warm",
               showscale: true,
+              colorbar: {
+                title: "Expression (FPKM)", // <-- Add your units here
+                titleside: "right"},
             },
           ]}
           layout={{
@@ -93,7 +96,7 @@ const Heatmap: React.FC = () => {
           }
         />
       ) : (
-        <p>Enter gene symbols and press "Generate Heatmap".</p>
+        <p>Enter upto 10 gene symbols separated by comma and press "Generate Heatmap".</p>
       )}
     </div>
   );

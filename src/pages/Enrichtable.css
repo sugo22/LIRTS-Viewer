@@ -1,0 +1,52 @@
+/* Enrichtable.css */
+table {
+  width: 100px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-overflow: ellipsis; /* Adds ellipsis for overflowed text */
+  max-width: 100%; /* Prevents content from stretching beyond available space */
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+tr {
+  height: 50px;
+}
+
+/* Force column widths */
+th:nth-child(1), td:nth-child(1) {
+  width: 10%; /* Pathway ID is the smallest */
+  max-width: 10%;
+  min-width: 10%;
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 20%; /* Pathway is medium size */
+  max-width: 20%;
+  min-width: 20%;
+}
+
+th:nth-child(3), td:nth-child(3) {
+  width: 70%; /* Genes takes the remaining space */
+  max-width: 70%;
+  min-width: 70%;
+}

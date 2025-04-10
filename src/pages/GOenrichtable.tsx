@@ -1,4 +1,4 @@
-import "./table.css";
+import "./Enrichtable.css";
 import React, { useState } from "react";
 import Plot from "react-plotly.js";
 import jsonData from "../data/goenrichmentgenes_data.json";
@@ -79,6 +79,9 @@ const EnrichmentApp: React.FC = () => {
             </option>
           ))}
         </select>
+        <p>Selecting a particular dataset will show the corresponding GO enriched terms at that particular time point and it is ordered
+          by the decreasing number of genes associated with the GO enriched term
+        </p>
       </div>
 
       <button

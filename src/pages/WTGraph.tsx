@@ -173,15 +173,30 @@ export function WTGraph() {
             </div>
           </div>
           <div className="plotDropDown">
-            <select id="plotSelect" onChange={(e) => updateGeneAndPlot(
-              e.target.value === "Box and Scatter" ? "Box and Scatter" : "Scatterplot",
-              geneName,
-              e.target.value !== "Scatterplot" ? "box" : "scatter",
-              e.target.value === "Scatterplot" ? "markers" : "none")}>
-              <option value="Box and Scatter">Box and Scatter</option>
-              <option value="Scatterplot">Scatterplot</option>
-              <option value="Boxplot">Boxplot</option>
-            </select>
+          <select id="plotSelect" onChange={(e) => {
+            const selectedPlot = e.target.value;
+            let newPlotType: Plotly.PlotType;
+            let newMode: PlotMode;
+
+            if (selectedPlot === "Box and Scatter") {
+              newPlotType = "box";
+              newMode = "none";
+            } else if (selectedPlot === "Scatterplot") {
+              newPlotType = "scatter";
+              newMode = "markers";
+            } else if (selectedPlot === "Boxplot") {
+              newPlotType = "box"; // Explicitly set to "box" for Boxplot
+              newMode = "none"; // Ensure mode is reset
+            } else {
+              return; // Fallback case (shouldn't happen)
+            }
+
+            updateGeneAndPlot(selectedPlot, geneName, newPlotType, newMode);
+          }}>
+            <option value="Box and Scatter">Box and Scatter</option>
+            <option value="Scatterplot">Scatterplot</option>
+            <option value="Boxplot">Boxplot</option>
+          </select>
           </div>
         </div>
       </div>

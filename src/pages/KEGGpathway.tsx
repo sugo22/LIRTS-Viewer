@@ -1,4 +1,4 @@
-import "./table.css";
+import "./Enrichtable.css";
 import React, { useState } from "react";
 import Plot from "react-plotly.js";
 import jsonData from "../data/keggpathwaygenes_data.json";
@@ -38,7 +38,7 @@ const PathwayApp: React.FC = () => {
     cells: {
       values: [pathwayIDs, pathways, genes],
       align: "center",
-      columnwidth: [150, 200, 800],
+      columnwidth: [50, 200, 800],
       font: { color: "black", size: 12 },
     },
   };
@@ -80,6 +80,9 @@ const PathwayApp: React.FC = () => {
             </option>
           ))}
         </select>
+        <p>Selecting a particular dataset will show the corresponding KEGG pathways enriched at that particular time point and it is ordered 
+          by the decreasing number of genes associated with the KEGG pathway term
+        </p>
       </div>
 
       <button

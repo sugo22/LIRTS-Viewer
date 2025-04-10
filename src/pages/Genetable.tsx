@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import geneData from "../data/LIRTS_corrpairs.json"; // Import JSON file
-import "./table.css";
+import "./Genetable.css";
 
 // Explicitly assert the type
 const typedGeneData: GenePair[] = geneData as GenePair[];
@@ -17,12 +17,15 @@ const GeneTable: React.FC = () => {
 
   // Function to filter data when button is clicked
   const handleSearch = () => {
+    const searchLower = search.toLowerCase();
+    
     const results = typedGeneData.filter(
       (item: GenePair) =>
-        item.Gene1.toLowerCase().includes(search.toLowerCase()) ||
-        item.Gene2.toLowerCase().includes(search.toLowerCase())
+        item.Gene1.toLowerCase() === searchLower || 
+        item.Gene2.toLowerCase() === searchLower
     );
-    setFilteredData(results); // Update state with filtered results
+  
+    setFilteredData(results);
   };
 
   const handleDownload = () => {
@@ -53,12 +56,12 @@ const GeneTable: React.FC = () => {
     <div>
       <input
         type="text"
-        placeholder="Enter gene name..."
+        placeholder="Enter gene name"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
-
+        <p>Enter a gene name to find other genes in the form of gene pairs which have very strong correlation with the gene of interest</p>
       {filteredData && filteredData.length > 0 && (
         <div>
           <button onClick={handleDownload}>Download CSV</button>
