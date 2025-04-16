@@ -61,7 +61,8 @@ const GeneTable: React.FC = () => {
         onChange={(e) => setSearch(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
-        <p>Enter a gene name to find other genes in the form of gene pairs which have very strong correlation with the gene of interest</p>
+        <p>Enter a gene name to find other genes whose expression pattern in LECs is similar following lens injury 
+          (ie "gene pairs" whose expression strongly correlates with the gene of interest)</p>
       {filteredData && filteredData.length > 0 && (
         <div>
           <button onClick={handleDownload}>Download CSV</button>
