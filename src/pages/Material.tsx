@@ -6,6 +6,7 @@ import GeneTable from "./Genetable";
 import PathwayApp from "./KEGGpathway";
 
 const WTGraph = lazy(() => import("./WTGraph"));
+//const FNGraph = lazy(() => import("./FNGraph"));
 function Loading() {
   return <center><h1>🌀 Loading...</h1></center>;
 }
@@ -35,6 +36,7 @@ const MaterialTabs = () => {
         <Tab label="Heatmap" />
         <Tab label="GO Enrichment" />
         <Tab label="KEGG Pathway" />
+        {/*<Tab label="Mutants" />*/}
       </Tabs>
 
       {/* Tab Panels */}
@@ -53,6 +55,10 @@ const MaterialTabs = () => {
       <TabPanel value={activeTab} index={4}>
         <PathwayApp />
       </TabPanel>
+      {/*<TabPanel value={activeTab} index={5}>
+      <Suspense fallback={<Loading />}>
+      <FNGraph sampleGroup="FN" timePoints={["0_hr", "48_hr"]} replicates={3}/></Suspense>
+      </TabPanel>*/}
     </Box>
   );
 };

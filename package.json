@@ -59,7 +59,7 @@
     ]
   },
   "devDependencies": {
-    "@types/plotly.js": "^2.12.18",
+    "@types/plotly.js": "^2.35.6",
     "@types/plotly.js-basic-dist": "^1.54.1",
     "@types/react": "^18.0.28",
     "@types/react-plotly.js": "^2.5.2",
