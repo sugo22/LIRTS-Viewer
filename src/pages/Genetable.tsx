@@ -54,6 +54,7 @@ const GeneTable: React.FC = () => {
 
   return (
     <div>
+      <h4>Gene Expression Correlation</h4>
       <input
         type="text"
         placeholder="Enter gene name"

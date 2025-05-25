@@ -64,7 +64,7 @@ const PathwayApp: React.FC = () => {
 
   return (
     <div className="p-4 w-full">
-      <h1 className="text-xl font-bold mb-4">Pathway Gene Data Visualization</h1>
+      <h4 className="text-xl font-bold mb-4">KEGG Pathway Information</h4>
 
       <div className="mb-4">
         <label htmlFor="timepoint" className="mr-2 font-medium">Select Time Point:</label>

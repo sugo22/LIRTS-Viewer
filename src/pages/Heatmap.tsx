@@ -93,23 +93,40 @@ const Heatmap: React.FC = () => {
   };
 
   const geneHeatmapTrace: Partial<Plotly.PlotData> = {
-    z: expressionValues,
-    x: timePoints,
-    y: geneNames,
-    type: "heatmap",
-    colorscale: "Warm",
-    showscale: true,
-    colorbar: {
-      title: "Expression (FPKM)",
-      titleside: "right",
+  z: expressionValues,
+  x: timePoints,
+  y: geneNames,
+  type: "heatmap",
+  colorscale: "Warm",
+  showscale: true,
+  colorbar: {
+  title: {
+    text: "Expression values (FPKM)",
+    side: "right",
+    font: {
+      size: 16,
+      color: "black",
     },
-    xaxis: "x",
-    yaxis: "y",
-  };
+  },
+  tickfont: {
+    size: 14,       // ⬅️ Change font size of tick labels
+    color: "black", // ⬅️ Optional: change tick label color
+  },
+} as any, // 👈 necessary override to avoid TS error
+  xaxis: "x",
+  yaxis: "y",
+};
 
+  const groupToCenteredX: { [group: string]: string } = {};
+
+  timeGroups.forEach((group) => {
+    const matching = timePoints.filter((tp) => getTimeGroup(tp) === group);
+    const centerIndex = Math.floor(matching.length / 2);
+    groupToCenteredX[group] = matching[centerIndex]; // center timepoint
+  });
   return (
     <div>
-      <h2>Gene Expression Heatmap</h2>
+      <h4>Gene Expression Heatmap</h4>
       <div style={{ marginBottom: "10px" }}>
         <input
           type="text"
@@ -134,25 +151,57 @@ const Heatmap: React.FC = () => {
               geneHeatmapTrace as Partial<Plotly.PlotData>,
             ]}
             layout={{
-              title: "Gene Expression Heatmap",
-              xaxis: {
-                title: "Time Points",
-                tickangle: -90,
+            title: {
+              text:`Heatmap for ${geneNames.join(", ")}`,
+              font:{size: 24}},
+            xaxis: {
+              title: {
+                text: "Time Points",
+                font: {
+                  size: 18, // ✅ Correct placement
+                },
+                standoff:20,
               },
-              yaxis: {
-                domain: [0, 0.9],
-                title: "Genes",
+              tickangle: -90,
+              tickfont: {
+                size: 14,
               },
-              yaxis2: {
-                domain: [0.91, 1],
-                showticklabels: false,
-                ticks: "",
-                showgrid: false,
+            },
+            yaxis: {
+              domain: [0, 0.9],
+              title: {
+                text: "Genes",
+                font: {
+                  size: 18, // ✅ Correct placement
+                },
+                standoff:20,
               },
-              autosize: true,
-              margin: { t: 50, l: 100, r: 50, b: 150 },
-              height: 600,
-              width: 1400,
+              tickfont: {
+                size: 16,
+              },
+            },
+            yaxis2: {
+              domain: [0.91, 1],
+              showticklabels: false,
+              ticks: "",
+              showgrid: false,
+            },
+            autosize: true,
+            margin: { t: 100, l: 100, r: 50, b: 150 },
+            height: 600,
+            width: 1400,
+            annotations: timeGroups.map((group) => ({
+              x: groupToCenteredX[group],
+              y: 1,
+              xref: "x",
+              yref: "paper",
+              text: `<span style="background-color:${timepointColors[group]};padding:2px 6px;border:1px solid #444;border-radius:3px;color:black">${group}</span>`,
+              showarrow: false,
+              align: "center",
+              font: {
+                size: 14,
+                color: "black",},
+              })),
             }}
             config={{
               toImageButtonOptions: {
@@ -162,27 +211,10 @@ const Heatmap: React.FC = () => {
                 width: 1400,
                 scale: 1,
               },
+              displayModeBar: true,
+              modeBarButtonsToRemove: ['zoom2d','zoomIn2d','zoomOut2d','pan2d', 'select2d', 'lasso2d', 'autoScale2d']
             }}
           />
-
-          {/* Optional timepoint legend */}
-          <div style={{ marginTop: "10px" }}>
-            {Object.entries(timepointColors).map(([group, color]) => (
-              <div key={group} style={{ display: "inline-block", marginRight: "10px" }}>
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: "15px",
-                    height: "15px",
-                    backgroundColor: color,
-                    marginRight: "5px",
-                    border: "1px solid #888",
-                  }}
-                ></span>
-                {group}
-              </div>
-            ))}
-          </div>
         </>
       ) : (
         <p>

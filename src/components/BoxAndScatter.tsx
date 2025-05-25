@@ -1,5 +1,6 @@
 import Plot from "react-plotly.js";
-import '../styles/Graphs.css'
+import './Graphs.css'
+//import '../styles/Graphs.css'
 /*The long list of variables here are what this component needs to function. They represent the various 
 parts of the gene information. It's stored in the stat above so other components like the BoxPlot can also
 use them. It's of the format {list of variable names}: {Varname: type}.
@@ -15,15 +16,15 @@ export function BoxAndScatter({dataMap, geneName, geneDescription, xPoints}:
         <Plot
           data= {dataMap}
           layout={ {
-            width: 1000,
+            width: 1200,
             height: 600,
-            title: { text: geneName, font: {size: 24, color:'black'}},
+            title: { text: geneName, font: {size: 28, color:'black'}},
             margin: { t: 100, b: 100},
             xaxis: {
               title: {
                 text: "Hour",
                 font: {
-                  size: 20,
+                  size: 24,
                   color: 'black'
                 }
               },
@@ -41,7 +42,7 @@ export function BoxAndScatter({dataMap, geneName, geneDescription, xPoints}:
               title: {
                 text: "FPKM",
                 font: {
-                  size: 20,
+                  size: 24,
                   color: 'black'
                 }
               },
@@ -50,6 +51,12 @@ export function BoxAndScatter({dataMap, geneName, geneDescription, xPoints}:
                 size: 20,
                 color: 'black'
               },
+            },
+            legend: {
+            font: {
+              size: 14,      // ← Change this to your preferred font size
+              color: 'black' // ← Optional: Customize color
+              }
             },
             annotations: [
               {
