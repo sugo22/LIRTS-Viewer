@@ -28,8 +28,15 @@ function Home() {
                 <Link to="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE145492">GSE145492</Link>, <Link to="https://pubmed.ncbi.nlm.nih.gov/34554928/">Shihan et al, 2021</Link>;
                 <Link to="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE166619">GSE166619</Link>, <Link to="https://pubmed.ncbi.nlm.nih.gov/34119483/">Faranda et al, 2021</Link>)<br></br>
             3. 0 vs 48H (<Link to="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE119879">GSE119879</Link>, <Link to="https://pubmed.ncbi.nlm.nih.gov/32173580/">Shihan et al, 2020</Link>)<br></br>
-            4. 0 vs 72H (<Link to="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE267060">GSE267060</Link>)<br></br>
-            5. 0 vs 120H (<Link to="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE266635">GSE266635</Link>)<br></br>
+            4. 0 vs 72H (<Link to="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE267060">GSE267060</Link>, <Link to="https://pubmed.ncbi.nlm.nih.gov/40679332/">Gorai et al, 2025</Link>)<br></br>
+            5. 0 vs 120H (<Link to="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE266635">GSE266635</Link>, <Link to="https://pubmed.ncbi.nlm.nih.gov/40679332/">Gorai et al, 2025</Link>)<br></br>
+            </p>
+            <p>
+                Please cite the associated publication when using this resource to gather information: <br></br>
+                Gorai S, Faranda AP, Shihan MH, Wang Y, Duncan MK. LIRTS Viewer: A Web-Based Resource to View the Transcriptional Response of Lens Epithelial Cells to Injury.
+                Invest Ophthalmol Vis Sci. 2025 Jul 1;66(9):53. doi: <Link to="https://iovs.arvojournals.org/article.aspx?articleid=2810420">10.1167/iovs.66.9.53</Link>. 
+                PMID: <Link to="https://pubmed.ncbi.nlm.nih.gov/40679332/">40679332</Link>;
+                PMCID: <Link to="https://pmc.ncbi.nlm.nih.gov/articles/PMC12302040/">PMC12302040</Link>.
             </p>
             </div>     
     </div>
